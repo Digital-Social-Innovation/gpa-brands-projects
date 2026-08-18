@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | GPA Brand Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&amp;family=Raleway:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#362f25",
+                        "on-primary": "#3a2e21",
+                        "muted-gray": "#4A4A4A",
+                        "primary": "#d6c4b0",
+                        "on-primary-fixed": "#231a0d",
+                        "primary-fixed": "#f3dfcb",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#ede1d1",
+                        "on-secondary-fixed-variant": "#4d463a",
+                        "gold-light": "#B3A89A",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary": "#2f3131",
+                        "secondary-fixed-dim": "#d1c5b6",
+                        "primary-container": "#9e8e7c",
+                        "gold-accent": "#9A8A78",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "primary-fixed-dim": "#d6c4b0",
+                        "tertiary-container": "#909191",
+                        "secondary": "#d1c5b6",
+                        "outline-variant": "#4d463e",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#282a2a",
+                        "on-primary-fixed-variant": "#514536",
+                        "outline": "#998f86",
+                        "on-secondary-container": "#bfb3a5",
+                        "on-error": "#690005",
+                        "deep-black": "#121212",
+                        "surface-bright": "#393939",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#6a5c4c",
+                        "surface-container": "#20201f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "surface-variant": "#353535",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#33281a",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "charcoal-bg": "#262626",
+                        "surface-tint": "#d6c4b0",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface-variant": "#d0c5ba",
+                        "on-secondary-fixed": "#211b11",
+                        "surface-container-highest": "#353535",
+                        "secondary-container": "#4d463a",
+                        "tertiary": "#c6c6c7",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Raleway"],
+                        "headline-md": ["Raleway"],
+                        "headline-lg-mobile": ["Raleway"],
+                        "headline-lg": ["Raleway"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.5", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="bg-background/70 backdrop-blur-md dark:bg-background/70 w-full top-0 sticky z-50 border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Icon (Hidden on Desktop) -->
+<button type="button" aria-label="Open menu" data-menu-toggle class="md:hidden text-gold-accent dark:text-gold-accent hover:text-gold-light transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<a class="text-headline-lg-mobile font-headline-lg-mobile font-bold text-gold-accent tracking-tighter" href="/">
+                GPA BRAND PROJECTS
+            </a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-gold-light transition-colors duration-300" href="/">Home</a>
+<a class="text-primary font-label-caps text-label-caps border-b-2 border-primary pb-1 hover:text-gold-light transition-colors duration-300" href="/about">About Us</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-gold-light transition-colors duration-300" href="/services">Services</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-gold-light transition-colors duration-300" href="/projects">Projects</a>
+</nav>
+<button class="hidden md:block bg-gold-accent text-on-primary hover:bg-gold-light transition-colors duration-300 font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT uppercase">
+            START PROJECT
+        </button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface-container-low flex flex-col md:flex-row gap-gutter items-center min-h-[618px]">
+<div class="w-full md:w-1/2 flex flex-col gap-stack-lg">
+<div>
+<span class="text-gold-accent font-label-caps text-label-caps uppercase mb-stack-sm block tracking-widest">About GPA</span>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">BUILT ON PASSION.<br/><span class="text-gold-accent">DRIVEN BY EXCELLENCE.</span></h1>
+</div>
+<div class="flex flex-col gap-stack-md text-on-surface-variant text-body-lg font-body-lg max-w-xl">
+<p>GPA Brand Projects is a full-service construction and renovation company committed to creating spaces that inspire.</p>
+<p>We combine innovative design, quality materials and expert craftsmanship to deliver projects that exceed expectations.</p>
+<p>Our team takes pride in every detail, from the first brick to the final finish.</p>
+</div>
+<div class="pt-stack-md mt-stack-md border-t border-outline-variant/30 max-w-sm">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-1">Asanda Sobetwa</h3>
+<span class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-widest">Founder</span>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-[500px] rounded-lg overflow-hidden border border-outline-variant/30">
+<div class="bg-cover bg-center w-full h-full" data-alt="A luxurious, modern open-plan interior space. Features a sleek black kitchen with gold pendant lighting, a sophisticated living area with charcoal sofas, and a stunning architectural staircase. High-contrast lighting highlights the premium materials and precise craftsmanship. The overall aesthetic is dark, premium, and meticulously designed, reflecting high-end architectural capabilities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAby8jqgPpYseY0kYFEarGW5prlLnV_IIdzp3Dq0QjQ8hFkOHnElwrj36vlHoKHZYqWbftvpfEFHUmw-saaPmcouH_DXvny3HpxosEIkCr-c_Bz846AHQCBYDZ6fE2OPAAvGNkeYuU6LmAAe6AA9XpU0nyU-K52voTSZR_oMPUk4UI6yBEhZzSHC2bJKEf23p9kYwhYG3Y8moAket6fnk9UVWn7EGx0abk8eFJqQ8ivIfICI4xOvA')"></div>
+</div>
+</section>
+<!-- Core Values Section (Light Banner) -->
+<section class="bg-primary-fixed text-on-primary-fixed py-stack-lg px-margin-mobile md:px-margin-desktop border-y border-gold-accent/20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center divide-x divide-on-primary-fixed/20">
+<div class="flex flex-col items-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-on-primary-fixed-variant" data-icon="architecture">architecture</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Quality Craftsmanship</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-on-primary-fixed-variant" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Innovative Solutions</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-on-primary-fixed-variant" data-icon="schedule">schedule</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">On-Time Delivery</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm p-4">
+<span class="material-symbols-outlined text-4xl text-on-primary-fixed-variant" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Client Focused</span>
+</div>
+</div>
+</section>
+<!-- Certifications Footer Strip -->
+<section class="bg-surface-container py-stack-lg px-margin-mobile md:px-margin-desktop border-b border-outline-variant/30">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-gutter text-center divide-x divide-outline-variant/50">
+<div class="flex flex-col gap-1 p-2">
+<span class="text-on-surface font-headline-md text-xl font-bold">CIDB</span>
+<span class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Grade 1</span>
+</div>
+<div class="flex flex-col gap-1 p-2">
+<span class="text-on-surface font-headline-md text-xl font-bold">CIPC</span>
+<span class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Registered</span>
+</div>
+<div class="flex flex-col gap-1 p-2">
+<span class="text-on-surface font-headline-md text-xl font-bold">NHBRC</span>
+<span class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Registered</span>
+</div>
+<div class="flex flex-col gap-1 p-2">
+<span class="text-on-surface font-headline-md text-xl font-bold">CSD</span>
+<span class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Registered</span>
+</div>
+<div class="flex flex-col gap-1 p-2 col-span-2 md:col-span-1 border-t md:border-t-0 border-outline-variant/50 mt-4 md:mt-0 pt-4 md:pt-2">
+<span class="text-on-surface font-headline-md text-xl font-bold">COIDA</span>
+<span class="text-on-surface-variant font-label-caps text-[10px] uppercase tracking-widest">Compliant</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from JSON -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-section-padding border-t border-outline-variant flex flex-col items-center text-center px-margin-mobile space-y-stack-md">
+<a class="text-gold-accent font-bold font-headline-md text-headline-md mb-stack-md" href="/">GPA BRAND PROJECTS</a>
+<div class="flex flex-col md:flex-row gap-stack-lg items-center text-body-md font-body-md">
+<a class="text-on-surface-variant hover:text-gold-light transition-colors duration-300" href="tel:+27665514082">066 551 4082</a>
+<span class="hidden md:inline text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-gold-light transition-colors duration-300" href="mailto:gpateams@gpabrandprojects.co.za">gpateams@gpabrandprojects.co.za</a>
+<span class="hidden md:inline text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-gold-light transition-colors duration-300" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+</div>
+<div class="mt-stack-lg pt-stack-md border-t border-outline-variant/30 w-full max-w-2xl text-on-surface-variant text-label-caps font-label-caps uppercase tracking-widest">
+            © 2024 GPA Brand Projects. All Rights Reserved.
+        </div>
+</footer>
+
+<script>
+(function() {
+  const WA = "https://wa.me/27665514082";
+  const EMAIL = "gpateams@gpabrandprojects.co.za";
+  const phone = "+27665514082";
+  const drawer = document.getElementById("mobile-drawer");
+
+  document.querySelectorAll("[data-menu-toggle]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (drawer) drawer.classList.remove("-translate-x-full");
+    });
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (drawer) drawer.classList.add("-translate-x-full");
+    });
+  });
+  if (drawer) drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", () => drawer.classList.add("-translate-x-full")));
+
+  // Close mobile menu with Escape.
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && drawer) drawer.classList.add("-translate-x-full");
+  });
+
+  // Project category filtering, if present.
+  const filterButtons = [...document.querySelectorAll("button")].filter(b =>
+    ["All Projects","New Builds","Renovations","Interiors","Exteriors"].includes(b.textContent.trim())
+  );
+  const projectCards = [...document.querySelectorAll("[data-project-category]")];
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.textContent.trim().toLowerCase();
+      filterButtons.forEach(b => b.classList.remove("text-gold-accent","border-gold-accent"));
+      btn.classList.add("text-gold-accent","border-gold-accent");
+      projectCards.forEach(card => {
+        const cat = (card.dataset.projectCategory || "").toLowerCase();
+        card.style.display = (filter === "all projects" || cat === filter) ? "" : "none";
+      });
+    });
+  });
+
+  // Contact forms use FormSubmit to deliver directly to the business inbox.
+  document.querySelectorAll("form[data-contact-form]").forEach(form => {
+    form.addEventListener("submit", function(e) {
+      const btn = form.querySelector('button[type="submit"]');
+      const status = form.querySelector("[data-form-status]");
+      if (form.querySelector('input[name="_honey"]').value) {
+        e.preventDefault();
+        return;
+      }
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+      if (status) status.textContent = "Sending your enquiry…";
+      // Native POST is intentionally used for reliable delivery without exposing API keys.
+    });
+  });
+})();
+</script>
+</body></html>
