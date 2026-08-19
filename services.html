@@ -129,8 +129,13 @@
 <!-- TopAppBar -->
 <header class="bg-background/70 backdrop-blur-md dark:bg-background/70 full-width top-0 sticky z-50 border-b border-outline-variant/30 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20">
 <div class="flex items-center gap-4">
-<button type="button" aria-label="Open menu" data-menu-toggle class="md:hidden text-gold-accent hover:text-gold-light transition-colors duration-300">
-<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<button
+  type="button"
+  aria-label="Open menu"
+  id="menu-toggle"
+  class="md:hidden text-gold-accent hover:text-gold-light transition-colors"
+>
+  <span class="material-symbols-outlined">menu</span>
 </button>
 <div class="text-headline-lg-mobile font-headline-lg-mobile font-bold text-gold-accent tracking-tighter">
                 GPA BRAND PROJECTS
@@ -146,29 +151,73 @@
             START YOUR PROJECT
         </button>
 </header>
-<!-- NavigationDrawer (Mobile Only, hidden by default, styling provided for reference based on JSON) -->
-<aside class="fixed inset-y-0 left-0 w-80 bg-surface-container dark:bg-surface-container shadow-2xl flex flex-col h-full transform -translate-x-full z-[60] md:hidden transition-transform duration-300">
-<div class="p-6">
-<div class="text-gold-accent font-headline-md mb-8">GPA BRAND PROJECTS</div>
-<nav class="flex flex-col gap-2">
-<a class="text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all rounded flex items-center gap-4" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-label-caps">Home</span>
-</a>
-<a class="text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all rounded flex items-center gap-4" href="#">
-<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
-<span class="font-label-caps">About Us</span>
-</a>
-<a class="bg-secondary-container text-on-secondary-container border-l-4 border-gold-accent px-6 py-4 rounded flex items-center gap-4" href="#">
-<span class="material-symbols-outlined" data-icon="construction">construction</span>
-<span class="font-label-caps">Services</span>
-</a>
-<a class="text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all rounded flex items-center gap-4" href="#">
-<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
-<span class="font-label-caps">Projects</span>
-</a>
-</nav>
-</div>
+<!-- Mobile Navigation -->
+<aside
+  id="mobile-drawer"
+  class="fixed inset-0 z-[100] bg-background transform -translate-x-full transition-transform duration-300 md:hidden"
+>
+  <div class="flex items-center justify-between h-20 px-6 border-b border-outline-variant/30">
+    
+    <a
+      href="index.html"
+      class="text-xl font-bold text-gold-accent tracking-tight"
+    >
+      GPA BRAND PROJECTS
+    </a>
+
+    <button
+      type="button"
+      id="menu-close"
+      aria-label="Close menu"
+      class="text-on-surface"
+    >
+      <span class="material-symbols-outlined text-3xl">
+        close
+      </span>
+    </button>
+
+  </div>
+
+  <nav class="flex flex-col p-6 gap-2">
+
+    <a
+      href="index.html"
+      class="text-on-surface-variant px-4 py-4 hover:bg-surface-variant transition-colors font-label-caps"
+    >
+      Home
+    </a>
+
+    <a
+      href="about_us.html"
+      class="text-on-surface-variant px-4 py-4 hover:bg-surface-variant transition-colors font-label-caps"
+    >
+      About Us
+    </a>
+
+    <a
+      href="services.html"
+      class="text-gold-accent bg-secondary-container px-4 py-4 font-label-caps"
+    >
+      Services
+    </a>
+
+    <a
+      href="projects.html"
+      class="text-on-surface-variant px-4 py-4 hover:bg-surface-variant transition-colors font-label-caps"
+    >
+      Projects
+    </a>
+
+    <a
+      href="https://wa.me/27665514082?text=Hello%20GPA%20Brand%20Projects%2C%20I%20would%20like%20a%20quote."
+      target="_blank"
+      rel="noopener"
+      class="mt-6 bg-gold-accent text-deep-black text-center px-6 py-4 font-label-caps uppercase"
+    >
+      Start Your Project
+    </a>
+
+  </nav>
 </aside>
 <!-- Main Content Canvas -->
 <main class="flex-grow flex flex-col">
@@ -308,24 +357,39 @@
   const WA = "https://wa.me/27665514082";
   const EMAIL = "gpateams@gpabrandprojects.co.za";
   const phone = "+27665514082";
-  const drawer = document.getElementById("mobile-drawer");
+document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelectorAll("[data-menu-toggle]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (drawer) drawer.classList.remove("-translate-x-full");
-    });
-  });
-  document.querySelectorAll("[data-menu-close]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (drawer) drawer.classList.add("-translate-x-full");
-    });
-  });
-  if (drawer) drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", () => drawer.classList.add("-translate-x-full")));
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileDrawer = document.getElementById("mobile-drawer");
 
-  // Close mobile menu with Escape.
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && drawer) drawer.classList.add("-translate-x-full");
-  });
+    // Open menu
+    menuToggle.addEventListener("click", function () {
+        mobileDrawer.classList.remove("-translate-x-full");
+    });
+
+    // Close menu
+    menuClose.addEventListener("click", function () {
+        mobileDrawer.classList.add("-translate-x-full");
+    });
+
+    // Close menu when a navigation link is clicked
+    const mobileLinks = mobileDrawer.querySelectorAll("a");
+
+    mobileLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            mobileDrawer.classList.add("-translate-x-full");
+        });
+    });
+
+    // Close menu with Escape key
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            mobileDrawer.classList.add("-translate-x-full");
+        }
+    });
+
+});
 
   // Project category filtering, if present.
   const filterButtons = [...document.querySelectorAll("button")].filter(b =>
