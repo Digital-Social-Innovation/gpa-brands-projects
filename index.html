@@ -140,32 +140,73 @@
             START YOUR PROJECT
         </a>
 </header>
-<!-- Mobile Navigation Drawer (Hidden by default, structure provided for context) -->
-<!--
-    <aside class="fixed inset-y-0 left-0 w-80 bg-surface-container dark:bg-surface-container shadow-2xl z-50 flex flex-col h-full transform -translate-x-full transition-transform duration-300">
-        <div class="p-6 border-b border-outline-variant/30">
-            <span class="text-gold-accent font-headline-md">GPA BRAND PROJECTS</span>
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-drawer"
+     class="fixed inset-0 z-[100] bg-black/60 hidden"
+     data-menu-overlay>
+
+    <aside class="absolute left-0 top-0 h-full w-80 max-w-[85%] bg-surface-container transform -translate-x-full transition-transform duration-300"
+           data-mobile-panel>
+
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between p-6 border-b border-outline-variant/30">
+            <div>
+                <span class="text-gold-accent font-headline-md font-bold">
+                    GPA
+                </span>
+                <span class="block text-[10px] text-gold-accent tracking-[0.2em]">
+                    BRAND PROJECTS
+                </span>
+            </div>
+
+            <button type="button"
+                    aria-label="Close menu"
+                    data-menu-close
+                    class="text-on-surface hover:text-gold-accent transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
-        <nav class="flex-1 overflow-y-auto py-4">
-            <a href="#" class="flex items-center gap-4 bg-secondary-container text-on-secondary-container border-l-4 border-gold-accent px-6 py-4 hover:bg-surface-variant transition-all">
-                <span class="material-symbols-outlined" data-icon="home">home</span>
+
+        <!-- Navigation -->
+        <nav class="flex flex-col py-4">
+
+            <a href="index.html"
+               class="flex items-center gap-4 text-on-surface px-6 py-4 hover:bg-surface-variant hover:text-gold-accent transition-all">
+                <span class="material-symbols-outlined">home</span>
                 <span class="font-label-caps">Home</span>
             </a>
-            <a href="#" class="flex items-center gap-4 text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all">
-                <span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+
+            <a href="about_us.html"
+               class="flex items-center gap-4 text-on-surface px-6 py-4 hover:bg-surface-variant hover:text-gold-accent transition-all">
+                <span class="material-symbols-outlined">corporate_fare</span>
                 <span class="font-label-caps">About Us</span>
             </a>
-            <a href="#" class="flex items-center gap-4 text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all">
-                <span class="material-symbols-outlined" data-icon="construction">construction</span>
+
+            <a href="services.html"
+               class="flex items-center gap-4 text-on-surface px-6 py-4 hover:bg-surface-variant hover:text-gold-accent transition-all">
+                <span class="material-symbols-outlined">construction</span>
                 <span class="font-label-caps">Services</span>
             </a>
-            <a href="#" class="flex items-center gap-4 text-on-surface-variant px-6 py-4 hover:bg-surface-variant transition-all">
-                <span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+
+            <a href="projects.html"
+               class="flex items-center gap-4 text-on-surface px-6 py-4 hover:bg-surface-variant hover:text-gold-accent transition-all">
+                <span class="material-symbols-outlined">architecture</span>
                 <span class="font-label-caps">Projects</span>
             </a>
+
+            <!-- WhatsApp CTA -->
+            <div class="px-6 pt-6">
+                <a href="https://wa.me/27665514082?text=Hello%20GPA%20Brand%20Projects%2C%20I%20would%20like%20to%20request%20a%20quote."
+                   target="_blank"
+                   rel="noopener"
+                   class="flex items-center justify-center bg-gold-accent text-deep-black font-label-caps py-4 px-6 hover:bg-gold-light transition-colors">
+                    START YOUR PROJECT
+                </a>
+            </div>
+
         </nav>
     </aside>
-    -->
+</div>
 <main class="flex-grow">
 <!-- Hero Section -->
 <section class="relative min-h-[707px] flex items-center overflow-hidden">
@@ -335,12 +376,58 @@
   const EMAIL = "gpateams@gpabrandprojects.co.za";
   const phone = "+27665514082";
   const drawer = document.getElementById("mobile-drawer");
+const mobilePanel = drawer?.querySelector("[data-mobile-panel]");
 
-  document.querySelectorAll("[data-menu-toggle]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (drawer) drawer.classList.remove("-translate-x-full");
+function openMenu() {
+    if (!drawer || !mobilePanel) return;
+
+    drawer.classList.remove("hidden");
+
+    // Small delay allows the slide animation to work
+    requestAnimationFrame(() => {
+        mobilePanel.classList.remove("-translate-x-full");
     });
-  });
+
+    document.body.classList.add("overflow-hidden");
+}
+
+function closeMenu() {
+    if (!drawer || !mobilePanel) return;
+
+    mobilePanel.classList.add("-translate-x-full");
+    document.body.classList.remove("overflow-hidden");
+
+    setTimeout(() => {
+        drawer.classList.add("hidden");
+    }, 300);
+}
+
+document.querySelectorAll("[data-menu-toggle]").forEach(btn => {
+    btn.addEventListener("click", openMenu);
+});
+
+document.querySelectorAll("[data-menu-close]").forEach(btn => {
+    btn.addEventListener("click", closeMenu);
+});
+
+// Close when clicking the dark background
+drawer?.addEventListener("click", (e) => {
+    if (e.target === drawer) {
+        closeMenu();
+    }
+});
+
+// Close after clicking a navigation link
+drawer?.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+
+// Close with Escape
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeMenu();
+    }
+});
   document.querySelectorAll("[data-menu-close]").forEach(btn => {
     btn.addEventListener("click", () => {
       if (drawer) drawer.classList.add("-translate-x-full");
